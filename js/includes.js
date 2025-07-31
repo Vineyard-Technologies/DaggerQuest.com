@@ -1,7 +1,7 @@
 // Determine the base path for includes depending on current location
-const basePath = (window.location.pathname.includes('/news/')) ? '../' : '';
+const basePath = (window.location.pathname.includes('/news/') || window.location.pathname.includes('/pages/')) ? '../' : '';
 
-fetch(basePath + 'header.html').then(res => res.text()).then(data => {
+fetch(basePath + 'includes/header.html').then(res => res.text()).then(data => {
   document.getElementById('header').innerHTML = data;
   const logo = document.getElementById('header-logo');
   if (logo) {
@@ -14,15 +14,15 @@ fetch(basePath + 'header.html').then(res => res.text()).then(data => {
     const href = link.getAttribute('href');
     if (href && !href.startsWith('http') && !href.startsWith('#')) {
         // Correctly resolve the path for the news link when on a news page.
-        if (window.location.pathname.includes('/news/') && href.endsWith('news.html')) {
-            link.setAttribute('href', '../news.html');
+        if ((window.location.pathname.includes('/news/') || window.location.pathname.includes('/pages/')) && href.endsWith('news.html')) {
+            link.setAttribute('href', '../pages/news.html');
         } else {
             link.setAttribute('href', basePath + href);
         }
     }
   });
 });
-fetch(basePath + 'footer.html').then(res => res.text()).then(data => {
+fetch(basePath + 'includes/footer.html').then(res => res.text()).then(data => {
   document.getElementById('footer').innerHTML = data;
   // Update footer links to use correct basePath
   const footerLinks = document.querySelectorAll('#footer a');

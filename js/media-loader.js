@@ -4,23 +4,23 @@
 const wallpapers = [
     {
         name: "splash screen",
-        thumb: "images/splashScreen.webp",
-        full: "images/wallpapers/splashScreen.png"
+        thumb: "../images/splashScreen.webp",
+        full: "../images/wallpapers/splashScreen.png"
     },
     {
         name: "screenshot",
-        thumb: "images/screenshot.webp",
-        full: "images/wallpapers/screenshot.png"
+        thumb: "../images/screenshot.webp",
+        full: "../images/wallpapers/screenshot.png"
     },
     {
         name: "main menu",
-        thumb: "images/mainMenu.webp",
-        full: "images/wallpapers/mainMenu.png"
+        thumb: "../images/mainMenu.webp",
+        full: "../images/wallpapers/mainMenu.png"
     },
     {
         name: "loading screen",
-        thumb: "images/loadingScreen.webp",
-        full: "images/wallpapers/loadingScreen.png"
+        thumb: "../images/loadingScreen.webp",
+        full: "../images/wallpapers/loadingScreen.png"
     }
 ];
 
