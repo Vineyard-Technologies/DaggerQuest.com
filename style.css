@@ -27,14 +27,14 @@
 }
 @font-face {
      font-family: 'Cinzel';
-     src: url('../game/fonts/cinzel-semibold.woff2') format('woff2');
+     src: url('game/fonts/cinzel-semibold.woff2') format('woff2');
      font-weight: 600;
      font-style: normal;
      font-display: block;
 }
 @font-face {
      font-family: 'Grenze';
-     src: url('../game/fonts/grenze-semibold.woff2') format('woff2');
+     src: url('game/fonts/grenze-semibold.woff2') format('woff2');
      font-weight: 600;
      font-style: normal;
      font-display: block;
