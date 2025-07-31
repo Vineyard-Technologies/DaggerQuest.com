@@ -54,15 +54,20 @@
     <main class="container flex-ads">
         <aside class="ad-slot left-ad desktop-only">
             <!-- DaggerQuest Left Ad -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2087729758302145"
-                crossorigin="anonymous"></script>
+            <script>
+                if (location.hostname === "daggerquest.com") {
+                    document.write('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2087729758302145" crossorigin="anonymous"><\/script>');
+                }
+            </script>
             <!-- DaggerQuest Game Ads -->
             <ins class="adsbygoogle"
                 style="display:inline-block;width:200px;height:720px"
                 data-ad-client="ca-pub-2087729758302145"
                 data-ad-slot="2524300910"></ins>
             <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                if (location.hostname === "daggerquest.com") {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
             </script>
         </aside>
         <section class="center-content">
@@ -74,15 +79,20 @@
         </section>
         <aside class="ad-slot right-ad desktop-only">
             <!-- DaggerQuest Right Ad -->
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2087729758302145"
-                crossorigin="anonymous"></script>
+            <script>
+                if (location.hostname === "daggerquest.com") {
+                    document.write('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2087729758302145" crossorigin="anonymous"><\/script>');
+                }
+            </script>
             <!-- DaggerQuest Game Ads -->
             <ins class="adsbygoogle"
                 style="display:inline-block;width:200px;height:720px"
                 data-ad-client="ca-pub-2087729758302145"
                 data-ad-slot="2524300910"></ins>
             <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
+                if (location.hostname === "daggerquest.com") {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
             </script>
             <ins class="adsbygoogle"
                  style="display:block"
@@ -90,6 +100,11 @@
                  data-ad-slot="2524300910"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
+            <script>
+                if (location.hostname === "daggerquest.com") {
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                }
+            </script>
         </aside>
     </main>
     <script src="includes.js"></script>
