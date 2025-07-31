@@ -286,6 +286,18 @@ h1 {
 }
 .news-post-detail {
      padding-top: 32px;
+     padding-left: 2rem;
+     padding-right: 2rem;
+     box-sizing: border-box;
+     max-width: 1000px;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+.news-post-detail a {
+    color: #fff !important;
+    text-decoration: underline;
+}
 }
 .news-headline {
      font-size: 1.45em;
@@ -569,6 +581,10 @@ body, .news-body, ul, li, .footer {
 }
 .name::after {
     content: "\00a0";
+}
+.name-no-space {
+    font-style: italic;
+    color: #ffd966;
 }
 .media-reel {
     display: grid;
