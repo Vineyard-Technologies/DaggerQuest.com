@@ -4,9 +4,9 @@ type: software
 title: "DaggerQuest.com"
 abstract: "The official website for DaggerQuest, an HTML5 Action RPG. Features embedded game client, news, guides, and community resources."
 authors:
-  - family-names: "Laserwolve Games"
-    email: "contact@laserwolvegames.com"
-repository-code: "https://github.com/Laserwolve-Games/DaggerQuest.com"
+  - family-names: "Vineyard Technologies"
+    email: "contact@VineyardTechnologies.org"
+repository-code: "https://github.com/Vineyard-Technologies/DaggerQuest.com"
 url: "https://daggerquest.com"
 license: AGPL-3.0
 keywords:
@@ -23,9 +23,9 @@ preferred-citation:
   type: software
   title: "DaggerQuest.com: Official Game Website"
   authors:
-    - family-names: "Laserwolve Games"
-      email: "contact@laserwolvegames.com"
-  repository-code: "https://github.com/Laserwolve-Games/DaggerQuest.com"
+    - family-names: "Vineyard Technologies"
+      email: "contact@VineyardTechnologies.org"
+  repository-code: "https://github.com/Vineyard-Technologies/DaggerQuest.com"
   url: "https://daggerquest.com"
   version: "1.0.0"
   date-released: "2025-08-20"

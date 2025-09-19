@@ -8,16 +8,16 @@ Thank you for your interest in the DaggerQuest website! This document outlines h
 
 If you're experiencing issues with the DaggerQuest website:
 
-1. **Check Known Issues**: Browse our [Issues](https://github.com/Laserwolve-Games/DaggerQuest.com/issues) page for known problems and solutions
-2. **Community Discussion**: Join discussions in our [Discussions](https://github.com/Laserwolve-Games/DaggerQuest.com/discussions) section
-3. **Game Support**: For gameplay issues, visit the main [DaggerQuest repository](https://github.com/Laserwolve-Games/DaggerQuest)
+1. **Check Known Issues**: Browse our [Issues](https://github.com/Vineyard-Technologies/DaggerQuest.com/issues) page for known problems and solutions
+2. **Community Discussion**: Join discussions in our [Discussions](https://github.com/Vineyard-Technologies/DaggerQuest.com/discussions) section
+3. **Game Support**: For gameplay issues, visit the main [DaggerQuest repository](https://github.com/Vineyard-Technologies/DaggerQuest)
 
 ### Technical Support
 
 For technical issues, bugs, or compatibility problems with the website:
 
 1. **Search Existing Issues**: Check if your issue has already been reported
-2. **Create a Bug Report**: If you find a new bug, please [open an issue](https://github.com/Laserwolve-Games/DaggerQuest.com/issues/new) with:
+2. **Create a Bug Report**: If you find a new bug, please [open an issue](https://github.com/Vineyard-Technologies/DaggerQuest.com/issues/new) with:
    - Clear description of the problem
    - Steps to reproduce the issue
    - Browser and device information
@@ -29,7 +29,7 @@ For questions about contributing to the DaggerQuest website:
 
 1. **Read Contributing Guidelines**: Check our [CONTRIBUTING.md](CONTRIBUTING.md) file
 2. **Code of Conduct**: Review our [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
-3. **Start a Discussion**: Ask questions in [Discussions](https://github.com/Laserwolve-Games/DaggerQuest.com/discussions)
+3. **Start a Discussion**: Ask questions in [Discussions](https://github.com/Vineyard-Technologies/DaggerQuest.com/discussions)
 
 ## Contact Information
 
@@ -89,7 +89,7 @@ When seeking support:
 - Check internet connection
 
 ### Game Won't Load (Embedded Client)
-- Refer to the main [DaggerQuest Support](https://github.com/Laserwolve-Games/DaggerQuest/blob/main/SUPPORT.md)
+- Refer to the main [DaggerQuest Support](https://github.com/Vineyard-Technologies/DaggerQuest/blob/main/SUPPORT.md)
 - Clear browser cache and cookies
 - Try refreshing the page
 - Check browser console for errors
@@ -120,8 +120,8 @@ You can help improve support for everyone:
 ## Resources
 
 - **Main Website**: [DaggerQuest.com](https://daggerquest.com)
-- **Game Repository**: [DaggerQuest](https://github.com/Laserwolve-Games/DaggerQuest)
-- **Source Code**: [GitHub Repository](https://github.com/Laserwolve-Games/DaggerQuest.com)
+- **Game Repository**: [DaggerQuest](https://github.com/Vineyard-Technologies/DaggerQuest)
+- **Source Code**: [GitHub Repository](https://github.com/Vineyard-Technologies/DaggerQuest.com)
 - **License**: [AGPL-3.0 License](LICENSE)
 - **Privacy Policy**: [Privacy Policy](https://daggerquest.com/privacy-policy.html)
 
