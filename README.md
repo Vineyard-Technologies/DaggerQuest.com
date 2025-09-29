@@ -21,12 +21,10 @@
 
 ### 📋 Related Repositories
 
-- [**DaggerQuest**](https://github.com/Laserwolve-Games/DaggerQuest) - The main repository for the *DaggerQuest* codebase.
-- [**DaggerQuest Test Realm**](https://github.com/Laserwolve-Games/DaggerQuest-Test-Realm) - The test realm for *DaggerQuest* - See a preview of updates before they go live.
-- [**DaggerTest**](https://github.com/Laserwolve-Games/DaggerTest) - A testing framework for *DaggerQuest* and [DaggerQuest.com](https://DaggerQuest.com).
-- [**Overlord**](https://github.com/Laserwolve-Games/Overlord) - An render pipeline management tool used to generated assets for *DaggerQuest*.
-- [**CAFfeine**](https://github.com/Laserwolve-Games/CAFfeine) - An automation and testing framework for *DaggerQuest* and Construct 3 in general.
-- [**Plains of Shinar**](https://github.com/Laserwolve-Games/PlainsOfShinar) - A re-hash *DaggerQuest* as a traditional desktop app, with a different tech stack.
+- [**DaggerQuest**](https://github.com/Vineyard-Technologies/DaggerQuest) - The main repository for the *DaggerQuest* codebase.
+- [**DaggerQuest Test Realm**](https://github.com/Vineyard-Technologies/DaggerQuest-Test-Realm) - The test realm for *DaggerQuest* - See a preview of updates before they go live.
+- [**Overlord**](https://github.com/Vineyard-Technologies/Overlord) - An render pipeline management tool used to generated assets for *DaggerQuest*.
+- [**CAFfeine**](https://github.com/Vineyard-Technologies/CAFfeine) - An automation and testing framework for *DaggerQuest* and Construct 3 in general.
 
 ## ✒️ License
 
