@@ -1,0 +1,30 @@
+{
+  "name": "daggerquest.com",
+  "version": "1.0.0",
+  "description": "The official website for DaggerQuest browser ARPG",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "game",
+    "arpg",
+    "browser-game"
+  ],
+  "author": "Vineyard Technologies",
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-helmet-async": "^2.0.5",
+    "react-router-dom": "^7.9.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "vite": "^7.1.7"
+  }
+}
