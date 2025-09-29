@@ -50,3 +50,7 @@ coverage/
 # Temporary folders
 tmp/
 temp/
+
+# Old HTML files (now replaced by React)
+# Keeping for reference but excluding from builds
+*.html.old
