@@ -10,8 +10,16 @@ function Support() {
         url="https://DaggerQuest.com/support"
       />
       <main className="container">
-        <h1 className="title">support</h1>
-        <p>Support content coming soon...</p>
+        <section className="support-form-container">
+          <h1 className="sr-only">Support Contact Form</h1>
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSct_8rqX4eF7Ywc7g3vUTC7zPbinfNSAgE7xwR8ShdZ-__-gA/viewform?embedded=true"
+            title="DaggerQuest Support Contact Form"
+            loading="lazy"
+          >
+            Loading…
+          </iframe>
+        </section>
       </main>
     </>
   )

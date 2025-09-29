@@ -2,6 +2,7 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
+import Analytics from './components/Analytics'
 import Home from './pages/Home'
 import News from './pages/News'
 import Guide from './pages/Guide'
@@ -16,6 +17,7 @@ import NotFound from './pages/NotFound'
 function App() {
   return (
     <>
+      <Analytics />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

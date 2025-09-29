@@ -69,7 +69,6 @@ function Home() {
           <div id="mobile-message" className="mobile-only">
             DaggerQuest is not yet available for mobile devices. Check back soon!
           </div>
-          <footer id="footer"></footer>
         </section>
         <aside className="ad-slot right-ad desktop-only">
           {/* DaggerQuest Right Ad */}
