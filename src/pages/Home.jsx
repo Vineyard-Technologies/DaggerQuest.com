@@ -1,7 +1,60 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SEO from '../components/SEO'
 
 function Home() {
+  useEffect(() => {
+    // Load AdSense script only on production domain
+    if (window.location.hostname === "daggerquest.com") {
+      const loadAdSenseScript = () => {
+        // Check if script is already loaded
+        if (document.getElementById('google-adsense-script')) {
+          // If script exists, just initialize ads
+          initializeAds()
+          return
+        }
+        
+        const script = document.createElement('script')
+        script.id = 'google-adsense-script'
+        script.async = true
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2087729758302145'
+        script.crossOrigin = 'anonymous'
+        document.head.appendChild(script)
+        
+        script.onload = () => {
+          setTimeout(initializeAds, 100)
+        }
+        
+        script.onerror = () => {
+          console.warn('Failed to load AdSense script')
+        }
+      }
+      
+      const initializeAds = () => {
+        try {
+          // Initialize each ad individually
+          const ads = document.querySelectorAll('.adsbygoogle')
+          ads.forEach((ad, index) => {
+            // Only initialize ads that haven't been initialized
+            if (!ad.classList.contains('adsbygoogle-noablate')) {
+              setTimeout(() => {
+                try {
+                  (window.adsbygoogle = window.adsbygoogle || []).push({})
+                } catch (e) {
+                  console.warn(`AdSense initialization error for ad ${index}:`, e)
+                }
+              }, index * 100) // Stagger initialization
+            }
+          })
+        } catch (e) {
+          console.warn('AdSense initialization error:', e)
+        }
+      }
+      
+      // Delay execution to ensure DOM is ready
+      setTimeout(loadAdSenseScript, 500)
+    }
+  }, [])
+
   return (
     <>
       <SEO 
@@ -33,30 +86,15 @@ function Home() {
       <main className="container flex-ads">
         <aside className="ad-slot left-ad desktop-only">
           {/* DaggerQuest Left Ad */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                if (location.hostname === "daggerquest.com") {
-                  document.write('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2087729758302145" crossorigin="anonymous"><\\/script>');
-                }
-              `
-            }}
-          />
-          <ins
-            className="adsbygoogle"
-            style={{ display: 'inline-block', width: '200px', height: '720px' }}
-            data-ad-client="ca-pub-2087729758302145"
-            data-ad-slot="2524300910"
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                if (location.hostname === "daggerquest.com") {
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-              `
-            }}
-          />
+          {window.location.hostname === "daggerquest.com" && (
+            <ins
+              className="adsbygoogle"
+              style={{ display: 'inline-block', width: '200px', height: '720px' }}
+              data-ad-client="ca-pub-2087729758302145"
+              data-ad-slot="2524300910"
+              key="left-ad"
+            />
+          )}
         </aside>
         <section className="center-content">
           <iframe 
@@ -72,47 +110,26 @@ function Home() {
         </section>
         <aside className="ad-slot right-ad desktop-only">
           {/* DaggerQuest Right Ad */}
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                if (location.hostname === "daggerquest.com") {
-                  document.write('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2087729758302145" crossorigin="anonymous"><\\/script>');
-                }
-              `
-            }}
-          />
-          <ins
-            className="adsbygoogle"
-            style={{ display: 'inline-block', width: '200px', height: '720px' }}
-            data-ad-client="ca-pub-2087729758302145"
-            data-ad-slot="2524300910"
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                if (location.hostname === "daggerquest.com") {
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-              `
-            }}
-          />
-          <ins
-            className="adsbygoogle"
-            style={{ display: 'block' }}
-            data-ad-client="ca-pub-2087729758302145"
-            data-ad-slot="2524300910"
-            data-ad-format="auto"
-            data-full-width-responsive="true"
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                if (location.hostname === "daggerquest.com") {
-                  (adsbygoogle = window.adsbygoogle || []).push({});
-                }
-              `
-            }}
-          />
+          {window.location.hostname === "daggerquest.com" && (
+            <>
+              <ins
+                className="adsbygoogle"
+                style={{ display: 'inline-block', width: '200px', height: '720px' }}
+                data-ad-client="ca-pub-2087729758302145"
+                data-ad-slot="2524300910"
+                key="right-ad-1"
+              />
+              <ins
+                className="adsbygoogle"
+                style={{ display: 'block' }}
+                data-ad-client="ca-pub-2087729758302145"
+                data-ad-slot="2524300910"
+                data-ad-format="auto"
+                data-full-width-responsive="true"
+                key="right-ad-2"
+              />
+            </>
+          )}
         </aside>
       </main>
     </>

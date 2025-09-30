@@ -52,6 +52,11 @@ function SEO({
       <meta property="twitter:description" content={description} />
       <meta property="twitter:image" content={finalImage} />
       
+      {/* Favicon */}
+      <link rel="icon" type="image/webp" href="/images/favicon.webp" />
+      <link rel="shortcut icon" type="image/webp" href="/images/favicon.webp" />
+      <link rel="apple-touch-icon" href="/images/favicon.webp" />
+      
       {/* Canonical URL */}
       <link rel="canonical" href={finalCanonical} />
       
