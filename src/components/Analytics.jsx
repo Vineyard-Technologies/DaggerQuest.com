@@ -6,7 +6,7 @@ function Analytics() {
 
   useEffect(() => {
     // Only load analytics on the production domain
-    if (location.hostname === "daggerquest.com") {
+    if (window.location.hostname === "daggerquest.com") {
       // Load Google Analytics if not already loaded
       if (!document.getElementById('google-gtag')) {
         // Add the gtag.js script
@@ -27,11 +27,11 @@ gtag('config', 'G-C5SY437DMY');`
     } else {
       console.warn('Not running on DaggerQuest.com, skipping analytics')
     }
-  }, [location.hostname])
+  }, [])
 
   // Track page views
   useEffect(() => {
-    if (window.gtag && location.hostname === "daggerquest.com") {
+    if (window.gtag && window.location.hostname === "daggerquest.com") {
       window.gtag('config', 'G-C5SY437DMY', {
         page_path: location.pathname,
       })

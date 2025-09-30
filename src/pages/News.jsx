@@ -4,12 +4,12 @@ import SEO from '../components/SEO'
 
 // News posts data (from news-loader.js)
 const newsPosts = [
-  {
-    href: "/news/patch-notes-045",
-    img: "/images/045.webp",
-    alt: "DaggerQuest 0.4.5",
-    headline: "0.4.5 Patch Notes"
-  },
+  // {
+  //   href: "/news/patch-notes-045",
+  //   img: "/images/045.webp",
+  //   alt: "DaggerQuest 0.4.5",
+  //   headline: "0.4.5 Patch Notes"
+  // },
   {
     href: "/news/test-realm", 
     img: "/images/test-realm.webp",
