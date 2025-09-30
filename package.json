@@ -20,6 +20,10 @@
   "dependencies": {
     "@dr.pogodin/react-helmet": "^3.0.4",
     "@formspree/react": "^3.0.0",
+    "buffer": "^6.0.3",
+    "gray-matter": "^4.0.3",
+    "js-yaml": "^4.1.0",
+    "marked": "^16.3.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "react-router-dom": "^7.9.3"

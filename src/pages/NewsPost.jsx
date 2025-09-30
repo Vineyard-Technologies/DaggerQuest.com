@@ -1,6 +1,40 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import { marked } from 'marked'
 import SEO from '../components/SEO'
+
+// Simple frontmatter parser for browser use
+function parseFrontmatter(content) {
+  const frontmatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/
+  const match = content.match(frontmatterRegex)
+  
+  if (!match) {
+    return { data: {}, content }
+  }
+  
+  const [, frontmatterText, markdownContent] = match
+  const data = {}
+  
+  // Parse YAML-like frontmatter
+  const lines = frontmatterText.split('\n')
+  for (const line of lines) {
+    const colonIndex = line.indexOf(':')
+    if (colonIndex > 0) {
+      const key = line.slice(0, colonIndex).trim()
+      let value = line.slice(colonIndex + 1).trim()
+      
+      // Remove quotes if present
+      if ((value.startsWith('"') && value.endsWith('"')) || 
+          (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1)
+      }
+      
+      data[key] = value
+    }
+  }
+  
+  return { data, content: markdownContent }
+}
 
 function NewsPost() {
   const { slug } = useParams()
@@ -12,38 +46,60 @@ function NewsPost() {
     const loadNewsContent = async () => {
       try {
         setLoading(true)
-        // Fetch the HTML file from the news folder
-        const response = await fetch(`/news/${slug}.html`)
+        
+        // Try to fetch Markdown file first, fallback to HTML
+        let response = await fetch(`/news/${slug}.md`)
+        let isMarkdown = true
         
         if (!response.ok) {
-          throw new Error(`News post not found: ${slug}`)
+          // Fallback to HTML file
+          response = await fetch(`/news/${slug}.html`)
+          isMarkdown = false
+          
+          if (!response.ok) {
+            throw new Error(`News post not found: ${slug}`)
+          }
         }
         
-        const htmlContent = await response.text()
+        const content = await response.text()
         
-        // Parse the HTML content
-        const parser = new DOMParser()
-        const doc = parser.parseFromString(htmlContent, 'text/html')
-        
-        // Extract the relevant content
-        const titleElement = doc.querySelector('.news-title')
-        const bodyElement = doc.querySelector('.news-body')
-        const imageElement = doc.querySelector('.news-thumb')
-        
-        // Extract meta information for SEO
-        const metaDescription = doc.querySelector('meta[name="description"]')?.getAttribute('content')
-        const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute('content')
-        const pageTitle = doc.querySelector('title')?.textContent
+        if (isMarkdown) {
+          // Parse Markdown with frontmatter
+          const { data: frontmatter, content: markdownContent } = parseFrontmatter(content)
+          
+          // Convert Markdown to HTML
+          const htmlContent = marked(markdownContent)
+          
+          setNewsData({
+            title: frontmatter.version ? `Release ${frontmatter.version}` : frontmatter.title,
+            body: htmlContent,
+            image: frontmatter.image || '',
+            imageAlt: frontmatter.imageAlt || `DaggerQuest ${frontmatter.version || slug}`,
+            description: frontmatter.description || `Read the latest DaggerQuest news post: ${slug}`,
+            pageTitle: frontmatter.title || `News: ${slug} | DaggerQuest | Browser ARPG`,
+            version: frontmatter.version
+          })
+        } else {
+          // Legacy HTML parsing (keep existing logic for backward compatibility)
+          const parser = new DOMParser()
+          const doc = parser.parseFromString(content, 'text/html')
+          
+          const titleElement = doc.querySelector('.news-title')
+          const bodyElement = doc.querySelector('.news-body')
+          const imageElement = doc.querySelector('.news-thumb')
+          
+          const metaDescription = doc.querySelector('meta[name="description"]')?.getAttribute('content')
+          const pageTitle = doc.querySelector('title')?.textContent
 
-        setNewsData({
-          title: titleElement?.textContent || slug,
-          body: bodyElement?.innerHTML || '',
-          image: imageElement?.getAttribute('src')?.replace('../', '/') || '',
-          imageAlt: imageElement?.getAttribute('alt') || '',
-          description: metaDescription || `Read the latest DaggerQuest news post: ${slug}`,
-          ogImage: ogImage || '',
-          pageTitle: pageTitle || `News: ${slug} | DaggerQuest | Browser ARPG`
-        })
+          setNewsData({
+            title: titleElement?.textContent || slug,
+            body: bodyElement?.innerHTML || '',
+            image: imageElement?.getAttribute('src')?.replace('../', '/') || '',
+            imageAlt: imageElement?.getAttribute('alt') || '',
+            description: metaDescription || `Read the latest DaggerQuest news post: ${slug}`,
+            pageTitle: pageTitle || `News: ${slug} | DaggerQuest | Browser ARPG`
+          })
+        }
       } catch (err) {
         console.error('Error loading news content:', err)
         setError(err.message)
@@ -118,7 +174,7 @@ function NewsPost() {
         title={newsData.pageTitle}
         description={newsData.description}
         url={`https://DaggerQuest.com/news/${slug}`}
-        image={newsData.ogImage}
+        image={newsData.image}
       />
       <main className="container news-container">
         <article className="news-post-detail">
@@ -129,12 +185,10 @@ function NewsPost() {
               className="news-thumb"
             />
           )}
-          <h1 className="news-title">{newsData.title}</h1>
           <div 
-            className="news-body"
+            className="news-body markdown-content"
             dangerouslySetInnerHTML={{ __html: newsData.body }}
           />
-          <div className="news-divider"></div>
         </article>
       </main>
     </>
