@@ -1,14 +1,8 @@
 ---
-title: "0.3.9 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.3.9: Shift key controls, loading screen tips, keybinding options, and many UI improvements."
+description: "New Shift key controls for attack-in-place, loading screen tips, expanded keybinding options, and enhanced UI feedback."
 version: "0.3.9"
-slug: "patch-notes-039"
-image: "/images/039.webp"
-imageAlt: "DaggerQuest 0.3.9 Release"
 type: "patch-notes"
 ---
-
-# Release 0.3.9
 
 ## Updates
 

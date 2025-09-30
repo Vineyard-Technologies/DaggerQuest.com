@@ -170,6 +170,14 @@ html, body {
      font-family: Arial, sans-serif;
      overflow-x: hidden;
 }
+
+.min-h-screen {
+     min-height: 100vh;
+}
+
+.bg-background {
+     background: #111;
+}
 body, .news-body, li {
      font-family: 'Grenze', serif;
      font-size: 1.1em;
@@ -535,6 +543,9 @@ body, .news-body, ul, li, .footer {
     text-align: center;
     width: 100%;
     gap: 6px;
+    box-shadow: 0 -2px 12px #0006;
+    background: #181818ee;
+    padding: 18px 0 18px 0;
 }
 .footer-desktop { display: block; }
 .footer-mobile { display: none; }

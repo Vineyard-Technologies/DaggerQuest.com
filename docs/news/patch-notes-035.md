@@ -1,14 +1,8 @@
 ---
-title: "0.3.5 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.3.5: Comprehensive sound effects overhaul, UI improvements, and interaction enhancements."
+description: "Major sound effects overhaul, UI highlights, interaction improvements, and fixes for equipment and NPC portraits."
 version: "0.3.5"
-slug: "patch-notes-035"
-image: "/images/035.webp"
-imageAlt: "DaggerQuest 0.3.5 Release"
 type: "patch-notes"
 ---
-
-# Release 0.3.5
 
 ## Updates
 

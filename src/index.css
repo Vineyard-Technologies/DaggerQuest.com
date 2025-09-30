@@ -1,4 +1,8 @@
-/* Ad <ins> element styles */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tailwind utility classes for footer layout *//* Ad <ins> element styles */
 .ad-ins {
     display: inline-block;
     width: 200px;

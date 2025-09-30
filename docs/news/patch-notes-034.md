@@ -1,14 +1,8 @@
 ---
-title: "0.3.4 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.3.4: Audio, performance, and UI improvements. Fixed equipment overlap and menu fade bugs."
+description: "Audio enhancements with spatial positioning, performance improvements, new splash screen, and equipment overlap fixes."
 version: "0.3.4"
-slug: "patch-notes-034"
-image: "/images/034.webp"
-imageAlt: "DaggerQuest 0.3.4 Release"
 type: "patch-notes"
 ---
-
-# Release 0.3.4
 
 ## Updates
 

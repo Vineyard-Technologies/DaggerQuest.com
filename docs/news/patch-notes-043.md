@@ -1,14 +1,8 @@
 ---
-title: "0.4.3 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.4.3: Enemy visual overhauls"
+description: "Complete visual overhaul of enemy sprites and animations for enhanced combat aesthetics and clarity."
 version: "0.4.3"
-slug: "patch-notes-043"
-image: "/images/043.webp"
-imageAlt: "DaggerQuest 0.4.3 Release"
 type: "patch-notes"
 ---
-
-# Release 0.4.3
 
 ## Updates
 

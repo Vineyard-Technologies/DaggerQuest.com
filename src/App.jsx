@@ -18,20 +18,24 @@ function App() {
   return (
     <>
       <Analytics />
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/news" element={<News />} />
-        <Route path="/news/:slug" element={<NewsPost />} />
-        <Route path="/guide" element={<Guide />} />
-        <Route path="/media" element={<Media />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/sitemap" element={<Sitemap />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        <Route path="/terms-of-use" element={<TermsOfUse />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-      <Footer />
+      <div className="min-h-screen flex flex-col bg-background">
+        <Header />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/news" element={<News />} />
+            <Route path="/news/:slug" element={<NewsPost />} />
+            <Route path="/guide" element={<Guide />} />
+            <Route path="/media" element={<Media />} />
+            <Route path="/support" element={<Support />} />
+            <Route path="/sitemap" element={<Sitemap />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </>
   )
 }

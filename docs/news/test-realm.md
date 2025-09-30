@@ -1,10 +1,6 @@
 ---
-title: "News: Test Realm | DaggerQuest | Browser ARPG"
-description: "Read all about the new DaggerQuest logo and Test Realm."
-version: "Test Realm"
-slug: "test-realm"
-image: "/images/test-realm.webp"
-imageAlt: "DaggerQuest News Post"
+title: "New Test Realm"
+description: "New DaggerQuest logo, new Test Realm for testing new patches."
 type: "news"
 ---
 

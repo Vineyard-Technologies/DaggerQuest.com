@@ -1,14 +1,8 @@
 ---
-title: "0.3.6 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.3.6: Added currency system, merchant functionality, UI improvements, and persistence between areas."
+description: "Introduces currency system, merchant functionality, area persistence, and numerous UI and interaction improvements."
 version: "0.3.6"
-slug: "patch-notes-036"
-image: "/images/036.webp"
-imageAlt: "DaggerQuest 0.3.6 Release"
 type: "patch-notes"
 ---
-
-# Release 0.3.6
 
 ## Updates
 

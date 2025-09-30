@@ -12,9 +12,9 @@ const newsPosts = [
   // },
   {
     href: "/news/test-realm", 
-    img: "/images/test-realm.webp",
+    img: "/images/new-test-realm.webp",
     alt: "DaggerQuest News Post",
-    headline: "new logo and test realm"
+    headline: "New Test Realm"
   },
   {
     href: "/news/patch-notes-044",

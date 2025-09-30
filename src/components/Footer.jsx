@@ -3,31 +3,106 @@ import { Link } from 'react-router-dom'
 
 function Footer() {
   return (
-    <footer className="footer" role="contentinfo">
-      <div className="footer-main">
-        <span>&copy; 2025</span>
-        <a href="https://VineyardTechnologies.org" className="footer-brand">Vineyard Technologies</a>
-        <a href="https://VineyardTechnologies.org" className="footer-logo-link" aria-label="Vineyard Technologies Website">
-          <img src="/images/VineyardTechnologiesLogo.webp" alt="Vineyard Technologies Logo" className="footer-logo-img" />
-        </a>
+    <footer 
+      style={{
+        background: '#181818ee',
+        boxShadow: '0 -2px 12px rgba(0,0,0,0.4)',
+        width: '100%',
+        padding: '24px',
+        color: 'white'
+      }}
+      role="contentinfo"
+    >
+      <div style={{ width: '100%', maxWidth: 'none' }}>
+        <div style={{ 
+          display: 'flex', 
+          flexDirection: 'row', 
+          alignItems: 'center', 
+          justifyContent: 'space-between',
+          width: '100%',
+          gap: '24px'
+        }}>
+          {/* DaggerQuest Logo - Far left corner */}
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <Link to="/" aria-label="DaggerQuest Home">
+              <img 
+                src="/images/logo.webp" 
+                alt="DaggerQuest Logo" 
+                style={{ height: '96px' }}
+              />
+            </Link>
+          </div>
+          
+          {/* All content - Far right corner */}
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'flex-end',
+            gap: '12px',
+            marginRight: '3%'
+          }}>
+            {/* Vineyard Technologies logo and copyright */}
+            <div style={{ 
+              display: 'flex', 
+              flexDirection: 'row', 
+              alignItems: 'center', 
+              gap: '16px' 
+            }}>
+              <div style={{ fontSize: '1.1em', color: 'rgba(255,255,255,0.9)' }}>
+                &copy; 2025 <a 
+                  href="https://VineyardTechnologies.org" 
+                  style={{ color: 'white', textDecoration: 'underline' }}
+                >Vineyard Technologies</a>
+              </div>
+              <a href="https://VineyardTechnologies.org" aria-label="Vineyard Technologies Website">
+                <img 
+                  src="/images/VineyardTechnologiesLogo.webp" 
+                  alt="Vineyard Technologies Logo" 
+                  style={{ height: '32px', transition: 'transform 0.2s' }}
+                  onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+                  onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+                />
+              </a>
+            </div>
+            
+            {/* License */}
+            <div style={{ fontSize: '1.1em', color: 'rgba(255,255,255,0.9)' }}>
+              Licensed and distributed under <a 
+                href="https://www.gnu.org/licenses/agpl-3.0.html.en" 
+                rel="license" 
+                style={{ color: 'white', textDecoration: 'underline' }}
+              >AGPL-3.0</a>
+            </div>
+            
+            {/* Legal Links */}
+            <div style={{ 
+              display: 'flex', 
+              flexWrap: 'wrap', 
+              gap: '16px', 
+              fontSize: '1.1em' 
+            }}>
+              <Link 
+                to="/privacy-policy" 
+                style={{ color: 'white', textDecoration: 'underline' }}
+              >
+                Privacy Policy
+              </Link>
+              <Link 
+                to="/terms-of-use" 
+                style={{ color: 'white', textDecoration: 'underline' }}
+              >
+                Terms of Service
+              </Link>
+              <Link 
+                to="/sitemap" 
+                style={{ color: 'white', textDecoration: 'underline' }}
+              >
+                Sitemap
+              </Link>
+            </div>
+          </div>
+        </div>
       </div>
-      <nav className="footer-links footer-desktop" aria-label="Footer navigation">
-        <span>Licensed and distributed under </span>
-        <a href="https://www.gnu.org/licenses/agpl-3.0.html.en" rel="license">AGPL-3.0</a>
-        <span className="footer-sep">|</span>
-        <Link to="/privacy-policy">Privacy Policy</Link>
-        <span className="footer-sep">|</span>
-        <Link to="/terms-of-use">Terms of Service</Link>
-        <span className="footer-sep">|</span>
-        <Link to="/sitemap">Sitemap</Link>
-      </nav>
-      <nav className="footer-links footer-mobile" aria-label="Footer navigation mobile">
-        <span>Licensed and distributed under </span>
-        <a href="https://www.gnu.org/licenses/agpl-3.0.html.en" rel="license">AGPL-3.0</a><br />
-        <Link to="/privacy-policy">Privacy Policy</Link> |
-        <Link to="/terms-of-use">Terms of Service</Link> |
-        <Link to="/sitemap">Sitemap</Link>
-      </nav>
     </footer>
   )
 }

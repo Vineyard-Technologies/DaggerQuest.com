@@ -1,14 +1,8 @@
 ---
-title: "0.4.0 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.4.0: Added Passive Skill Tree. Fixed equipment and audio bugs."
+description: "Introduces the Passive Skill Tree system accessible from Abilities screen, plus equipment and audio bug fixes."
 version: "0.4.0"
-slug: "patch-notes-040"
-image: "/images/040.webp"
-imageAlt: "DaggerQuest 0.4.0 Release"
 type: "patch-notes"
 ---
-
-# Release 0.4.0
 
 ## Updates
 

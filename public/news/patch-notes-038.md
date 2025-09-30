@@ -1,14 +1,8 @@
 ---
-title: "0.3.8 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.3.8: Enemy repositioning, improved movement, merchant systems, and area-specific features."
+description: "Enhanced enemy movement and positioning, expanded merchant systems, area-specific improvements, and comprehensive bug fixes."
 version: "0.3.8"
-slug: "patch-notes-038"
-image: "/images/038.webp"
-imageAlt: "DaggerQuest 0.3.8 Release"
 type: "patch-notes"
 ---
-
-# Release 0.3.8
 
 ## Updates
 

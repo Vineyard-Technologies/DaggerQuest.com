@@ -67,16 +67,45 @@ function NewsPost() {
           // Parse Markdown with frontmatter
           const { data: frontmatter, content: markdownContent } = parseFrontmatter(content)
           
+          // Auto-generate fields for patch notes and auto-append suffix to titles
+          const isPatchNotes = frontmatter.type === 'patch-notes'
+          const baseTitle = isPatchNotes && frontmatter.version 
+            ? `${frontmatter.version} Patch Notes`
+            : frontmatter.title
+          const autoTitle = baseTitle && !baseTitle.includes(' | DaggerQuest | Browser ARPG')
+            ? `${baseTitle} | DaggerQuest | Browser ARPG`
+            : baseTitle
+          
+          // Auto-derive image from title for news posts, version for patch notes
+          const titleSlug = baseTitle ? baseTitle.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') : slug
+          const autoImage = isPatchNotes && frontmatter.version
+            ? `/images/${frontmatter.version.replace(/\./g, '')}.webp`
+            : frontmatter.image || `/images/${titleSlug}.webp`
+          const autoImageAlt = isPatchNotes && frontmatter.version
+            ? `DaggerQuest ${frontmatter.version} patch notes`
+            : frontmatter.type === 'news'
+            ? 'DaggerQuest News Post'
+            : frontmatter.imageAlt
+          
+          // Auto-generate header for patch notes
+          let processedContent = markdownContent
+          if (isPatchNotes && frontmatter.version) {
+            // Remove existing H1 header if it exists
+            processedContent = markdownContent.replace(/^#\s+[^\n]+\n\n?/m, '')
+            // Add auto-generated header
+            processedContent = `# ${frontmatter.version} patch notes\n\n${processedContent}`
+          }
+          
           // Convert Markdown to HTML
-          const htmlContent = marked(markdownContent)
+          const htmlContent = marked(processedContent)
           
           setNewsData({
-            title: frontmatter.version ? `Release ${frontmatter.version}` : frontmatter.title,
+            title: frontmatter.version ? `${frontmatter.version} patch notes` : (autoTitle || `News: ${slug}`),
             body: htmlContent,
-            image: frontmatter.image || '',
-            imageAlt: frontmatter.imageAlt || `DaggerQuest ${frontmatter.version || slug}`,
+            image: autoImage || '',
+            imageAlt: autoImageAlt || `DaggerQuest ${frontmatter.version || slug}`,
             description: frontmatter.description || `Read the latest DaggerQuest news post: ${slug}`,
-            pageTitle: frontmatter.title || `News: ${slug} | DaggerQuest | Browser ARPG`,
+            pageTitle: autoTitle || `News: ${slug} | DaggerQuest | Browser ARPG`,
             version: frontmatter.version
           })
         } else {

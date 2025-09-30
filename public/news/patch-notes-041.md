@@ -1,14 +1,8 @@
 ---
-title: "0.4.1 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.4.1: New legal, support, and media pages. Improved loot display. Fixed sound and interaction bugs."
+description: "New website pages for legal info, support, and media gallery. Enhanced loot display and fixes for sound and interaction issues."
 version: "0.4.1"
-slug: "patch-notes-041"
-image: "/images/041.webp"
-imageAlt: "DaggerQuest 0.4.1 Release"
 type: "patch-notes"
 ---
-
-# Release 0.4.1
 
 ## Updates
 

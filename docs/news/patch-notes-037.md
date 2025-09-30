@@ -1,14 +1,8 @@
 ---
-title: "0.3.7 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.3.7: Major performance improvements, stat rebalancing, and combat system changes."
+description: "Significant performance optimizations, stat system overhaul, combat rebalancing, and enhanced visual effects."
 version: "0.3.7"
-slug: "patch-notes-037"
-image: "/images/037.webp"
-imageAlt: "DaggerQuest 0.3.7 Release"
 type: "patch-notes"
 ---
-
-# Release 0.3.7
 
 ## Updates
 

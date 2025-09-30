@@ -1,14 +1,8 @@
 ---
-title: "0.4.2 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.4.2: Added Guide page and volume sliders."
+description: "Introduces comprehensive Guide page with gameplay instructions and volume slider controls for better audio experience."
 version: "0.4.2"
-slug: "patch-notes-042"
-image: "/images/042.webp"
-imageAlt: "DaggerQuest 0.4.2 Release"
 type: "patch-notes"
 ---
-
-# Release 0.4.2
 
 ## Updates
 

@@ -1,14 +1,8 @@
 ---
-title: "0.4.4 Patch Notes | DaggerQuest | Browser ARPG"
-description: "DaggerQuest Patch Notes 0.4.4: Faster animations, new gear, and a login window."
+description: "Performance improvements with faster player animations, new Leather Jacket item, and foundational login system functionality."
 version: "0.4.4"
-slug: "patch-notes-044"
-image: "/images/044.webp"
-imageAlt: "DaggerQuest 0.4.4 Release"
 type: "patch-notes"
 ---
-
-# Release 0.4.4
 
 ## Updates
 
