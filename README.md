@@ -1,23 +1,16 @@
-![DaggerQuest Website Graphic](images/website.png)
+![DaggerQuest Website Graphic](readmeimage.webp)
 
-### The official website for *DaggerQuest* - Now built with React!
+### The official website for *DaggerQuest*
 
 ## ⚔️ Play Now
 
-**Play DaggerQuest at: [DaggerQuest.com](https://daggerquest.com/)**
+**Play DaggerQuest at: [DaggerQuest.com](https://DaggerQuest.com/)**
 
-## 🏗️ Structure
+## ⚒️ Structure
 
 *DaggerQuest* is embedded directly onto the homepage and playable within the browser. You can also see the latest news posts, read the guide, download wallpapers and more.
 
-The website has been completely refactored to use **React** with **Vite** as the build tool, providing:
-- ⚡ Fast development with hot reload
-- 📱 Modern React components with hooks
-- 🎯 Client-side routing with React Router
-- 🔍 SEO optimization with react-helmet-async
-- 📦 Optimized production builds
-
-## 🚀 Development
+## 🧙‍♂️ Development
 
 ### Prerequisites
 - Node.js (v18+ recommended)
@@ -43,11 +36,6 @@ npm run dev
 
 The development server will start at `http://localhost:5173` with hot reload enabled.
 
-### Available Scripts
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build locally
 
 ### Project Structure
 
@@ -78,58 +66,16 @@ The development server will start at `http://localhost:5173` with hot reload ena
 
 ## 📄 Website Pages
 
-- **Homepage** - Embedded *DaggerQuest* client with React components
-- **News** - Latest updates and announcements with React pagination
-- **Guide** - Gameplay instructions and tips with search functionality
-- **Media** - Screenshots and promotional materials gallery
-- **Support** - Help and contact information with embedded Google Form
-- **Privacy Policy** & **Terms of Use** - Legal documents
-
-## 🚀 Deployment
-
-### Building for Production
-
-```bash
-npm run build
-```
-
-This creates a `dist/` folder with optimized production files:
-- Minified JavaScript and CSS
-- Static assets from `public/` directory
-- SEO-optimized HTML files
-
-### Deployment Instructions
-
-1. **Build the project**
-```bash
-npm run build
-```
-
-2. **Deploy the `dist/` folder** to your web server or CDN
-
-3. **Configure routing** - Ensure your server redirects all routes to `index.html` for React Router to work:
-
-**For GitHub Pages:**
-- The build includes proper routing configuration
-
-**For Apache (.htaccess):**
-```apache
-Options -MultiViews
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^ index.html [QSA,L]
-```
-
-**For Nginx:**
-```nginx
-location / {
-  try_files $uri $uri/ /index.html;
-}
-```
+- [**Homepage**](https://DaggerQuest.com/) - Embedded *DaggerQuest* client with React components
+- [**News**](https://DaggerQuest.com/news) - Latest updates and announcements with React pagination
+- [**Guide**](https://DaggerQuest.com/guide) - Gameplay instructions and tips with search functionality
+- [**Media**](https://DaggerQuest.com/media) - Screenshots and promotional materials gallery
+- [**Support**](https://DaggerQuest.com/support) - Help and contact information with embedded Google Form
+- [**Privacy Policy**](https://DaggerQuest.com/privacy-policy) & [**Terms of Use**](https://DaggerQuest.com/terms-of-use) - Legal documents
 
 ### Environment Variables
 
-The application automatically detects the production environment (`daggerquest.com`) for:
+The application automatically detects the production environment (`DaggerQuest.com`) for:
 - Google Analytics tracking
 - Google AdSense ads
 - Production-specific features
@@ -142,25 +88,12 @@ The application automatically detects the production environment (`daggerquest.c
 - **Responsive Header/Footer** - Mobile-friendly navigation
 - **Page Components** - Modular page structure
 
-### Performance Optimizations
-- Font preloading for web fonts
-- Image optimization
-- Code splitting with Vite
-- CSS minification
-- JavaScript bundling and minification
-
 ### SEO Features
 - Dynamic meta tags per page
 - Open Graph and Twitter Card support
 - Structured data (JSON-LD)
 - Canonical URLs
 - Sitemap generation
-
-### Backwards Compatibility
-- All existing URLs work with React Router
-- Game assets remain unchanged
-- Static files preserved in public directory
-- CSS styling maintained
 
 ## 📋 Related Repositories
 
