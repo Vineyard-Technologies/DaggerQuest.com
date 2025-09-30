@@ -749,3 +749,90 @@ body, .news-body, ul, li, .footer {
         padding: 1.5rem;
     }
 }
+
+/* Markdown content styling for news posts */
+.markdown-content h1 {
+    font-family: 'Cinzel', serif;
+    color: #8B4513;
+    font-size: 2.2em;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.markdown-content h2 {
+    font-family: 'Cinzel', serif;
+    color: #8B4513;
+    font-size: 1.6em;
+    margin: 2rem 0 1rem 0;
+    border-bottom: 2px solid #ffd966;
+    padding-bottom: 0.5rem;
+    text-transform: lowercase;
+}
+
+.markdown-content h3 {
+    font-family: 'Cinzel', serif;
+    color: #8B4513;
+    font-size: 1.3em;
+    margin: 1.5rem 0 0.75rem 0;
+}
+
+.markdown-content ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 1rem 0;
+}
+
+.markdown-content li {
+    font-family: 'Grenze', serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.markdown-content li:before {
+    content: "•";
+    color: #8B4513;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+}
+
+.markdown-content strong {
+    color: #ffd966;
+    font-style: italic;
+    font-weight: normal;
+}
+
+.markdown-content p {
+    font-family: 'Grenze', serif;
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #333;
+    margin: 1rem 0;
+}
+
+.news-date {
+    font-family: 'Grenze', serif;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 0.9em;
+}
+
+@media (max-width: 700px) {
+    .markdown-content h1 {
+        font-size: 1.8em;
+    }
+    
+    .markdown-content h2 {
+        font-size: 1.4em;
+    }
+    
+    .markdown-content li, .markdown-content p {
+        font-size: 1em;
+    }
+}
