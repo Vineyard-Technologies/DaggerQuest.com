@@ -28,7 +28,7 @@ function Footer() {
               <img 
                 src="/images/logo.webp" 
                 alt="DaggerQuest Logo" 
-                style={{ height: '96px' }}
+                style={{ height: '96px', width: 'auto' }}
               />
             </Link>
           </div>

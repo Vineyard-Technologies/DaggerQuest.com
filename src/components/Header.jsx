@@ -14,23 +14,25 @@ function Header() {
         <Link to="/" className="navbar-logo-link" aria-label="DaggerQuest Home">
           <img id="header-logo" src="/images/logo.webp" alt="DaggerQuest Logo" />
         </Link>
-        <ul className="navbar-links desktop-only" role="list">
-          <li><Link to="/">home</Link></li>
-          <li><Link to="/news">news</Link></li>
-          <li><Link to="/guide">guide</Link></li>
-          <li><Link to="/media">media</Link></li>
-          <li><Link to="/support">support</Link></li>
-        </ul>
-        <button 
-          className="navbar-hamburger mobile-only" 
-          aria-label="Open menu" 
-          aria-expanded={mobileMenuOpen}
-          onClick={toggleMobileMenu}
-        >
-          <span className="navbar-hamburger-bar"></span>
-          <span className="navbar-hamburger-bar"></span>
-          <span className="navbar-hamburger-bar"></span>
-        </button>
+        <div className="navbar-content">
+          <ul className="navbar-links desktop-only" role="list">
+            <li><Link to="/">home</Link></li>
+            <li><Link to="/news">news</Link></li>
+            <li><Link to="/guide">guide</Link></li>
+            <li><Link to="/media">media</Link></li>
+            <li><Link to="/support">support</Link></li>
+          </ul>
+          <button 
+            className="navbar-hamburger mobile-only" 
+            aria-label="Open menu" 
+            aria-expanded={mobileMenuOpen}
+            onClick={toggleMobileMenu}
+          >
+            <span className="navbar-hamburger-bar"></span>
+            <span className="navbar-hamburger-bar"></span>
+            <span className="navbar-hamburger-bar"></span>
+          </button>
+        </div>
         <ul className={`navbar-menu mobile-only ${mobileMenuOpen ? 'open' : ''}`} role="list">
           <li><Link to="/" onClick={() => setMobileMenuOpen(false)}>home</Link></li>
           <li><Link to="/news" onClick={() => setMobileMenuOpen(false)}>news</Link></li>
