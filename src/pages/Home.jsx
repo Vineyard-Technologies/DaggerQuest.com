@@ -1,7 +1,12 @@
 import React, { useEffect } from 'react'
 import SEO from '../components/SEO'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 function Home() {
+  const centerContentRef = useScrollAnimation()
+  const leftAdRef = useScrollAnimation()
+  const rightAdRef = useScrollAnimation()
+
   useEffect(() => {
     // Load AdSense script only on production domain
     if (window.location.hostname === "daggerquest.com") {
@@ -84,7 +89,7 @@ function Home() {
         }}
       />
       <main className="container flex-ads">
-        <aside className="ad-slot left-ad desktop-only">
+        <aside ref={leftAdRef} className="ad-slot left-ad desktop-only fade-in-element">
           {/* DaggerQuest Left Ad */}
           {window.location.hostname === "daggerquest.com" && (
             <ins
@@ -96,7 +101,7 @@ function Home() {
             />
           )}
         </aside>
-        <section className="center-content">
+        <section ref={centerContentRef} className="center-content fade-in-element">
           <iframe 
             className="game-frame desktop-only" 
             src="/game/index.html" 
@@ -108,7 +113,7 @@ function Home() {
             DaggerQuest is not yet available for mobile devices. Check back soon!
           </div>
         </section>
-        <aside className="ad-slot right-ad desktop-only">
+        <aside ref={rightAdRef} className="ad-slot right-ad desktop-only fade-in-element">
           {/* DaggerQuest Right Ad */}
           {window.location.hostname === "daggerquest.com" && (
             <>

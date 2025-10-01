@@ -212,10 +212,12 @@ function NewsPost() {
               src={newsData.image} 
               alt={newsData.imageAlt} 
               className="news-thumb"
+              style={{ animation: 'fadeInUp 0.6s ease-out' }}
             />
           )}
           <div 
             className="news-body markdown-content"
+            style={{ animation: 'fadeInUp 0.6s ease-out 0.2s both' }}
             dangerouslySetInnerHTML={{ __html: newsData.body }}
           />
         </article>

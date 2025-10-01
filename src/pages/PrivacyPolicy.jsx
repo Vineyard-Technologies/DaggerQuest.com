@@ -1,7 +1,10 @@
 import React from 'react'
 import SEO from '../components/SEO'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 function PrivacyPolicy() {
+  const contentRef = useScrollAnimation()
+
   return (
     <>
       <SEO 
@@ -9,7 +12,7 @@ function PrivacyPolicy() {
         description="DaggerQuest Privacy Policy: Learn how we collect, use, and protect your data when you play our browser ARPG."
         url="https://DaggerQuest.com/privacy-policy"
       />
-      <main className="container legal-page">
+      <main ref={contentRef} className="container legal-page fade-in-element">
         <h1>privacy policy</h1>
         <h2>Introduction</h2>
         <p><a href="https://VineyardTechnologies.org/" className="legal-link">Vineyard Technologies</a> respects your privacy and is committed to protecting your personal information. This Privacy Policy outlines how we collect, use, disclose, and safeguard your information when you play <a href="https://DaggerQuest.com/" className="legal-link">DaggerQuest</a>.</p>

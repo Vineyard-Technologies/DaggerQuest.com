@@ -1,5 +1,6 @@
 import React from 'react'
 import SEO from '../components/SEO'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 // Media data (from media-loader.js) 
 const wallpapers = [
@@ -26,6 +27,9 @@ const wallpapers = [
 ];
 
 function Media() {
+  const titleRef = useScrollAnimation()
+  const mediaReelRef = useScrollAnimation()
+
   return (
     <>
       <SEO 
@@ -34,8 +38,8 @@ function Media() {
         url="https://DaggerQuest.com/media"
       />
       <main className="container news-container">
-        <h1 className="title">media</h1>
-        <section className="media-reel" id="media-reel" aria-label="Media gallery">
+        <h1 ref={titleRef} className="title fade-in-element">media</h1>
+        <section ref={mediaReelRef} className="media-reel fade-in-element" id="media-reel" aria-label="Media gallery">
           {wallpapers.map((wallpaper, index) => (
             <div key={index} className="news-post media-post">
               <div className="media-thumb-container">

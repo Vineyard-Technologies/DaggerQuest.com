@@ -1,29 +1,35 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { getAllPages, getPageSEO } from '../config/pageMetadata'
 
 function Sitemap() {
+  const titleRef = useScrollAnimation()
+  const gridRef = useScrollAnimation()
+  const sitemapMeta = getPageSEO('sitemap')
+  const pages = getAllPages()
+
   return (
     <>
       <SEO 
-        title="Sitemap | DaggerQuest | Browser ARPG"
-        description="DaggerQuest Sitemap: Explore all pages and sections of the browser-based ARPG website for easy navigation."
-        url="https://DaggerQuest.com/sitemap"
+        title={sitemapMeta.title}
+        description={sitemapMeta.description}
+        url={sitemapMeta.url}
       />
-      <main className="container">
-        <h1>sitemap</h1>
-        <nav aria-label="Site navigation">
-          <ul>
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/news">News</Link></li>
-            <li><Link to="/guide">Guide</Link></li>
-            <li><Link to="/media">Media</Link></li>
-            <li><Link to="/support">Support</Link></li>
-            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
-            <li><Link to="/terms-of-use">Terms of Service</Link></li>
-            <li><Link to="/sitemap">Sitemap</Link></li>
-          </ul>
-        </nav>
+      <main className="container sitemap-container">
+        <h1 ref={titleRef} className="title fade-in-element">sitemap</h1>
+        <div ref={gridRef} className="sitemap-grid fade-in-element">
+          {pages.map((page, index) => (
+            <div key={index} className="sitemap-card">
+              <h2 className="sitemap-card-title">{page.title}</h2>
+              <p className="sitemap-card-description">{page.description}</p>
+              <Link to={page.path} className="sitemap-card-button">
+                Go to page
+              </Link>
+            </div>
+          ))}
+        </div>
       </main>
     </>
   )

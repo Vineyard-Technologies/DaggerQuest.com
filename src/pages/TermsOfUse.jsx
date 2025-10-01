@@ -1,7 +1,10 @@
 import React from 'react'
 import SEO from '../components/SEO'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 function TermsOfUse() {
+  const contentRef = useScrollAnimation()
+
   return (
     <>
       <SEO 
@@ -9,7 +12,7 @@ function TermsOfUse() {
         description="DaggerQuest Terms of Use: Read the terms and conditions for playing and using our browser ARPG service."
         url="https://DaggerQuest.com/terms-of-use"
       />
-      <main className="container legal-page">
+      <main ref={contentRef} className="container legal-page fade-in-element">
         <h1>terms of use</h1>
         <h2>Acceptance of Terms</h2>
         <p>By accessing or using the <a href="https://DaggerQuest.com/" className="legal-link">DaggerQuest</a> website and services, you agree to be bound by these Terms of Use. If you disagree with any part of these terms, please do not access the website or use the services.</p>

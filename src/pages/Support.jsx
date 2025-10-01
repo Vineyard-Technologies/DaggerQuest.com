@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm, ValidationError } from '@formspree/react'
 import SEO from '../components/SEO'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 function ContactForm() {
   const [state, handleSubmit] = useForm("xpwydban")
@@ -57,6 +58,8 @@ function ContactForm() {
 }
 
 function Support() {
+  const contentRef = useScrollAnimation()
+
   return (
     <>
       <SEO 
@@ -65,7 +68,7 @@ function Support() {
         url="https://DaggerQuest.com/support"
       />
       <main className="container">
-        <div className="support-content">
+        <div ref={contentRef} className="support-content fade-in-element">
           <h1>contact support</h1>
           <p>Having trouble with DaggerQuest? Need help or want to report a bug? Send us a message and we'll get back to you as soon as possible.</p>
           <ContactForm />

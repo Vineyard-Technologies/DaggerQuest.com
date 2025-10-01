@@ -1,96 +1,43 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
+import { newsPosts } from '../data/newsData'
 
-// News posts data (from news-loader.js)
-const newsPosts = [
-  // {
-  //   href: "/news/patch-notes-045",
-  //   img: "/images/045.webp",
-  //   alt: "DaggerQuest 0.4.5",
-  //   headline: "0.4.5 Patch Notes"
-  // },
-  {
-    href: "/news/test-realm", 
-    img: "/images/new-test-realm.webp",
-    alt: "DaggerQuest News Post",
-    headline: "New Test Realm"
-  },
-  {
-    href: "/news/patch-notes-044",
-    img: "/images/044.webp", 
-    alt: "DaggerQuest 0.4.4",
-    headline: "0.4.4 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-043",
-    img: "/images/043.webp",
-    alt: "DaggerQuest 0.4.3", 
-    headline: "0.4.3 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-042",
-    img: "/images/042.webp",
-    alt: "DaggerQuest 0.4.2",
-    headline: "0.4.2 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-041",
-    img: "/images/041.webp",
-    alt: "DaggerQuest 0.4.1",
-    headline: "0.4.1 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-040",
-    img: "/images/040.webp",
-    alt: "DaggerQuest 0.4.0",
-    headline: "0.4.0 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-039", 
-    img: "/images/039.webp",
-    alt: "DaggerQuest 0.3.9",
-    headline: "0.3.9 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-038",
-    img: "/images/038.webp",
-    alt: "DaggerQuest 0.3.8",
-    headline: "0.3.8 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-037",
-    img: "/images/037.webp",
-    alt: "DaggerQuest 0.3.7", 
-    headline: "0.3.7 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-036",
-    img: "/images/036.webp",
-    alt: "DaggerQuest 0.3.6",
-    headline: "0.3.6 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-035",
-    img: "/images/035.webp",
-    alt: "DaggerQuest 0.3.5",
-    headline: "0.3.5 Patch Notes"
-  },
-  {
-    href: "/news/patch-notes-034",
-    img: "/images/034.webp",
-    alt: "DaggerQuest 0.3.4",
-    headline: "0.3.4 Patch Notes"
-  }
-];
+// Using shared news data from newsData.js
 
 const postsPerPage = 6;
 
 function News() {
   const [visiblePosts, setVisiblePosts] = useState(postsPerPage)
+  const [isLoading, setIsLoading] = useState(false)
+  const titleRef = useScrollAnimation()
+  const newsReelRef = useScrollAnimation()
+  const loadMoreRef = useScrollAnimation()
+  const newPostsRef = useRef(null)
 
-  const loadMore = () => {
-    setVisiblePosts(prev => Math.min(prev + postsPerPage, newsPosts.length))
+  const loadMore = async () => {
+    setIsLoading(true)
+    const previousPostCount = visiblePosts
+    
+    // Add a small delay for smooth animation
+    setTimeout(() => {
+      setVisiblePosts(prev => Math.min(prev + postsPerPage, newsPosts.length))
+      setIsLoading(false)
+      
+      // Scroll to center the new posts after they're rendered
+      setTimeout(() => {
+        if (newPostsRef.current) {
+          const newPostsElement = document.querySelector(`.news-post:nth-child(${previousPostCount + 1})`)
+          if (newPostsElement) {
+            newPostsElement.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'center' 
+            })
+          }
+        }
+      }, 100)
+    }, 200)
   }
 
   const showMoreButton = visiblePosts < newsPosts.length
@@ -103,23 +50,33 @@ function News() {
         url="https://DaggerQuest.com/news"
       />
       <main className="container news-container">
-        <h1 className="title">news</h1>
-        <section className="news-reel" id="news-reel" aria-label="News articles">
-          {newsPosts.slice(0, visiblePosts).map((post, index) => (
-            <Link key={index} to={post.href} className="news-post">
-              <img src={post.img} alt={post.alt} className="news-thumb" />
-              <div className="news-headline">{post.headline}</div>
-            </Link>
-          ))}
+        <h1 ref={titleRef} className="title fade-in-element">news</h1>
+        <section ref={newsReelRef} className="news-reel fade-in-element" id="news-reel" aria-label="News articles">
+          {newsPosts.slice(0, visiblePosts).map((post, index) => {
+            const isNewPost = index >= postsPerPage && index < visiblePosts
+            return (
+              <Link 
+                key={index} 
+                to={post.href} 
+                className={`news-post ${isNewPost ? 'news-post-new' : ''}`}
+                ref={index === postsPerPage ? newPostsRef : null}
+              >
+                <img src={post.img} alt={post.alt} className="news-thumb" />
+                <div className="news-headline">{post.headline}</div>
+              </Link>
+            )
+          })}
         </section>
         {showMoreButton && (
           <button 
+            ref={loadMoreRef}
             id="show-more-btn" 
-            className="show-more-btn" 
+            className={`show-more-btn fade-in-element ${isLoading ? 'loading' : ''}`}
             aria-label="Load more news articles"
             onClick={loadMore}
+            disabled={isLoading}
           >
-            show more
+            {isLoading ? 'loading...' : 'show more'}
           </button>
         )}
       </main>

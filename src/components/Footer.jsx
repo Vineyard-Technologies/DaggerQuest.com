@@ -48,7 +48,7 @@ function Footer() {
               alignItems: 'center', 
               gap: '16px' 
             }}>
-              <div style={{ fontSize: '1.1em', color: 'rgba(255,255,255,0.9)' }}>
+              <div style={{ fontSize: '1.1em', color: '#a29273' }}>
                 &copy; 2025 <a 
                   href="https://VineyardTechnologies.org" 
                   style={{ color: 'white', textDecoration: 'underline' }}
@@ -66,7 +66,7 @@ function Footer() {
             </div>
             
             {/* License */}
-            <div style={{ fontSize: '1.1em', color: 'rgba(255,255,255,0.9)' }}>
+            <div style={{ fontSize: '1.1em', color: '#a29273' }}>
               Licensed and distributed under <a 
                 href="https://www.gnu.org/licenses/agpl-3.0.html.en" 
                 rel="license" 

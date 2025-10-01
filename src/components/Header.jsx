@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { getLatestPosts } from '../data/newsData'
 
 function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [newsDropdownOpen, setNewsDropdownOpen] = useState(false)
+  const latestPosts = getLatestPosts(3)
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
@@ -17,7 +20,31 @@ function Header() {
         <div className="navbar-content">
           <ul className="navbar-links desktop-only" role="list">
             <li><Link to="/">home</Link></li>
-            <li><Link to="/news">news</Link></li>
+            <li 
+              className="navbar-dropdown-container"
+              onMouseEnter={() => setNewsDropdownOpen(true)}
+              onMouseLeave={() => setNewsDropdownOpen(false)}
+            >
+              <Link to="/news">news</Link>
+              {newsDropdownOpen && (
+                <div className="navbar-dropdown">
+                  <div className="navbar-dropdown-header">Latest News</div>
+                  {latestPosts.map((post, index) => (
+                    <Link 
+                      key={index} 
+                      to={post.href} 
+                      className="navbar-dropdown-item"
+                    >
+                      <div className="navbar-dropdown-title">{post.headline}</div>
+                      <div className="navbar-dropdown-description">{post.description}</div>
+                    </Link>
+                  ))}
+                  <Link to="/news" className="navbar-dropdown-footer">
+                    view all news →
+                  </Link>
+                </div>
+              )}
+            </li>
             <li><Link to="/guide">guide</Link></li>
             <li><Link to="/media">media</Link></li>
             <li><Link to="/support">support</Link></li>
