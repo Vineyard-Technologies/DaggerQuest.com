@@ -108,7 +108,6 @@ function Home() {
             allowFullScreen 
             loading="lazy"
             importance="high"
-            sandbox="allow-scripts allow-same-origin allow-fullscreen"
             title="DaggerQuest Game"
             style={{contain: 'strict'}}
           />
