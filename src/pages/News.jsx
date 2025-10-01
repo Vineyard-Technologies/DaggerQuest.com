@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
-import { newsPosts } from '../data/newsData'
+import { getNewsPosts } from '../data/newsData'
 
 // Using shared news data from newsData.js
 
@@ -13,8 +13,10 @@ function News() {
   const [isLoading, setIsLoading] = useState(false)
   const titleRef = useScrollAnimation()
   const newsReelRef = useScrollAnimation()
-  const loadMoreRef = useScrollAnimation()
   const newPostsRef = useRef(null)
+  
+  // Get news posts using cached function
+  const newsPosts = getNewsPosts()
 
   const loadMore = async () => {
     setIsLoading(true)
@@ -75,9 +77,8 @@ function News() {
         </section>
         {showMoreButton && (
           <button 
-            ref={loadMoreRef}
             id="show-more-btn" 
-            className={`show-more-btn fade-in-element ${isLoading ? 'loading' : ''}`}
+            className={`show-more-btn ${isLoading ? 'loading' : ''}`}
             aria-label="Load more news articles"
             onClick={loadMore}
             disabled={isLoading}
