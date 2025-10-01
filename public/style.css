@@ -178,7 +178,7 @@
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(-8px);
     background: #1a1a1a;
     border-radius: 8px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
@@ -188,6 +188,15 @@
     z-index: 1000;
     margin-top: 0;
     border: 1px solid #333;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.navbar-dropdown-container:hover .navbar-dropdown {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
 }
 
 .navbar-dropdown-header {
@@ -729,6 +738,16 @@ h1 {
 body, .news-body, ul, li, .footer {
      color: #ffe7b0 !important;
 }
+
+/* Ensure all paragraph content uses consistent color */
+.markdown-content p, .container p, .news-body p, p {
+    color: #ffe7b0 !important;
+}
+
+/* Add spacing after bold text for better readability */
+strong, b {
+    margin-right: 0.2em;
+}
 .container ul a {
     color: #fff !important;
     text-decoration: underline !important;
@@ -1021,6 +1040,7 @@ body, .news-body, ul, li, .footer {
     font-family: 'Grenze', serif;
     font-size: 1.1em;
     line-height: 1.6;
+    color: #ffe7b0;
     color: #333;
     margin: 1rem 0;
 }

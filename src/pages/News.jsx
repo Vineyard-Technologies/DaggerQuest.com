@@ -61,7 +61,13 @@ function News() {
                 className={`news-post ${isNewPost ? 'news-post-new' : ''}`}
                 ref={index === postsPerPage ? newPostsRef : null}
               >
-                <img src={post.img} alt={post.alt} className="news-thumb" />
+                <img 
+                  src={post.img} 
+                  alt={`${post.headline} - DaggerQuest News`} 
+                  className="news-thumb"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="news-headline">{post.headline}</div>
               </Link>
             )

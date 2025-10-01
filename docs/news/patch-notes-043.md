@@ -10,7 +10,3 @@ type: "patch-notes"
 - Visually overhauled the **Goblin Archer**.
 - Decreased the attack speed of the **Goblin Warlock**.
 - Removed noncombat animations for the player.
-
-## Bug Fixes
-
-- None

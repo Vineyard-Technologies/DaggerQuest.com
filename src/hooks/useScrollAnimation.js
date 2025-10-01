@@ -2,27 +2,34 @@ import { useEffect, useRef } from 'react'
 
 export const useScrollAnimation = () => {
   const elementRef = useRef()
+  const observerRef = useRef()
 
   useEffect(() => {
     const element = elementRef.current
     if (!element) return
 
-    const observer = new IntersectionObserver(
+    observerRef.current = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           element.classList.add('visible')
+          // Disconnect after animating to save resources
+          observerRef.current?.disconnect()
         }
       },
       {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        rootMargin: '50px',
+        // Add performance optimizations
+        trackVisibility: true,
+        delay: 100
       }
     )
 
-    observer.observe(element)
+    observerRef.current.observe(element)
 
+    // Cleanup on unmount
     return () => {
-      observer.unobserve(element)
+      observerRef.current?.disconnect()
     }
   }, [])
 

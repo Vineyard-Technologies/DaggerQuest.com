@@ -87,13 +87,18 @@ function NewsPost() {
             ? 'DaggerQuest News Post'
             : frontmatter.imageAlt
           
-          // Auto-generate header for patch notes
+          // Auto-generate header for patch notes and news posts
           let processedContent = markdownContent
           if (isPatchNotes && frontmatter.version) {
             // Remove existing H1 header if it exists
             processedContent = markdownContent.replace(/^#\s+[^\n]+\n\n?/m, '')
             // Add auto-generated header
             processedContent = `# ${frontmatter.version} patch notes\n\n${processedContent}`
+          } else if (frontmatter.type === 'news' && frontmatter.title) {
+            // For news posts, remove existing H1 header and use frontmatter title
+            processedContent = markdownContent.replace(/^#\s+[^\n]+\n\n?/m, '')
+            // Add auto-generated header from frontmatter title
+            processedContent = `# ${frontmatter.title}\n\n${processedContent}`
           }
           
           // Convert Markdown to HTML

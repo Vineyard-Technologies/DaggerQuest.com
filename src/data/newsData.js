@@ -2,13 +2,13 @@
 // This file serves as the single source of truth for news posts
 
 export const newsPosts = [
-  // {
-  //   href: "/news/patch-notes-045",
-  //   img: "/images/045.webp",
-  //   alt: "DaggerQuest 0.4.5",
-  //   headline: "0.4.5 Patch Notes",
-  //   description: "Latest updates and improvements to DaggerQuest gameplay and mechanics."
-  // },
+  {
+    href: "/news/patch-notes-045",
+    img: "/images/045.webp",
+    alt: "DaggerQuest 0.4.5",
+    headline: "0.4.5 Patch Notes",
+    description: "Latest updates and improvements to DaggerQuest gameplay and mechanics."
+  },
   {
     href: "/news/test-realm", 
     img: "/images/new-test-realm.webp",
@@ -95,7 +95,23 @@ export const newsPosts = [
   }
 ];
 
+// Simple caching for news data
+let cachedPosts = null
+let cacheTime = 0
+const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
+
+export const getNewsPosts = () => {
+  const now = Date.now()
+  if (cachedPosts && (now - cacheTime) < CACHE_DURATION) {
+    return cachedPosts
+  }
+  
+  cachedPosts = newsPosts
+  cacheTime = now
+  return cachedPosts
+}
+
 // Get latest posts for dropdown display
 export const getLatestPosts = (count = 3) => {
-  return newsPosts.slice(0, count);
+  return getNewsPosts().slice(0, count);
 }
