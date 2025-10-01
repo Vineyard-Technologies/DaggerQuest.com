@@ -106,10 +106,7 @@ function Home() {
             className="game-frame desktop-only" 
             src="/game/index.html" 
             allowFullScreen 
-            loading="lazy"
-            importance="high"
             title="DaggerQuest Game"
-            style={{contain: 'strict'}}
           />
           <div id="mobile-message" className="mobile-only">
             DaggerQuest is not yet available for mobile devices. Check back soon!
