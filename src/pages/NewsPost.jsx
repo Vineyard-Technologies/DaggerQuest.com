@@ -47,21 +47,26 @@ function NewsPost() {
       try {
         setLoading(true)
         
-        // Try to fetch Markdown file first, fallback to HTML
-        let response = await fetch(`/news/${slug}.md`)
+        // Try to load Markdown file using dynamic import (bundled with app)
+        let content
         let isMarkdown = true
         
-        if (!response.ok) {
-          // Fallback to HTML file
-          response = await fetch(`/news/${slug}.html`)
-          isMarkdown = false
-          
-          if (!response.ok) {
+        try {
+          const markdownModule = await import(`../assets/news/${slug}.md?raw`)
+          content = markdownModule.default
+        } catch (importError) {
+          // Fallback to HTML file fetch if markdown import fails
+          try {
+            const response = await fetch(`/news/${slug}.html`)
+            if (!response.ok) {
+              throw new Error(`News post not found: ${slug}`)
+            }
+            content = await response.text()
+            isMarkdown = false
+          } catch (fetchError) {
             throw new Error(`News post not found: ${slug}`)
           }
         }
-        
-        const content = await response.text()
         
         if (isMarkdown) {
           // Parse Markdown with frontmatter
