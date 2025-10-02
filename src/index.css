@@ -76,6 +76,78 @@
     color: #222;
 }
 
+/* Access Denied Page Styles */
+.access-denied-page {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.access-denied-content {
+    background: #181818ee;
+    border-radius: 12px;
+    padding: 32px;
+    margin-top: 24px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+.access-denied-message {
+    color: #ff6b6b;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.access-denied-description {
+    color: #ffe7b0;
+    font-size: 1em;
+    margin-bottom: 32px;
+    line-height: 1.6;
+}
+
+.access-denied-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.access-denied-button {
+    display: inline-block;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-family: 'Cinzel', serif;
+    font-size: 1em;
+    text-transform: lowercase;
+    transition: all 0.2s ease;
+    min-width: 140px;
+}
+
+.access-denied-button.primary {
+    background: #ffe7b0;
+    color: #222;
+}
+
+.access-denied-button.primary:hover {
+    background: #ffd480;
+    color: #222;
+    transform: translateY(-2px);
+}
+
+.access-denied-button.secondary {
+    background: transparent;
+    color: #ffe7b0;
+    border: 2px solid #ffe7b0;
+}
+
+.access-denied-button.secondary:hover {
+    background: #ffe7b0;
+    color: #222;
+    transform: translateY(-2px);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .sitemap-grid {
@@ -88,6 +160,15 @@
     .sitemap-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+    
+    .access-denied-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .access-denied-content {
+        padding: 24px 20px;
     }
     
     .sitemap-card {

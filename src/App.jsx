@@ -13,6 +13,7 @@ import Sitemap from './pages/Sitemap'
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import TermsOfUse from './pages/TermsOfUse'
 import NewsPost from './pages/NewsPost'
+import TestRealmAccessDenied from './pages/TestRealmAccessDenied'
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/sitemap" element={<Sitemap />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-use" element={<TermsOfUse />} />
+          <Route path="/test-realm-access-denied" element={<TestRealmAccessDenied />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </main>
