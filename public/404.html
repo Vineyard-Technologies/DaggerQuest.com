@@ -29,45 +29,20 @@
     <!-- Performance optimizations -->
     <link rel="dns-prefetch" href="//test.daggerquest.com">
     
-    <script type="module" crossorigin src="/assets/index-DeSw4uUq.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-C0Zn6geE.css">
-</head>
-<body>
-    <div id="root"></div>
-    
+    <!-- Redirect script for client-side routing -->
     <script>
-        // Single Page Application 404 redirect
-        // This script preserves the path and redirects to the main app
-        // so React Router can handle client-side routing
-        
-        (function() {
-            var redirect = sessionStorage.redirect;
-            delete sessionStorage.redirect;
-            
-            if (redirect && redirect !== location.href) {
-                // If there's a stored redirect, use it
-                history.replaceState(null, null, redirect);
-            } else {
-                // Check if this looks like an asset request (has file extension)
-                var path = location.pathname;
-                var hasFileExtension = /\.[^\/]+$/.test(path);
-                
-                // Don't redirect asset requests (images, fonts, etc.)
-                if (hasFileExtension) {
-                    return;
-                }
-                
-                // For non-asset requests, store the path and redirect to root
-                // The React app will then handle the routing
-                var currentPath = location.pathname + location.search + location.hash;
-                
-                // Only redirect if we're not already at root and this isn't an asset
-                if (currentPath !== '/' && !hasFileExtension) {
-                    sessionStorage.redirect = currentPath;
-                    location.replace('/');
-                }
-            }
-        })();
+      // Only redirect if this looks like a page route, not an asset
+      const path = location.pathname;
+      const isAssetRequest = /\.(css|js|png|jpg|jpeg|gif|webp|svg|ico|woff|woff2|ttf|eot|mp4|mp3|pdf|zip|json|xml|txt)$/i.test(path);
+      
+      if (!isAssetRequest) {
+        // Store the current path and redirect to root for SPA routing
+        sessionStorage.setItem('redirectPath', location.pathname + location.search + location.hash);
+        location.replace('/');
+      } else {
+        // For missing assets, also redirect to homepage
+        location.replace('/');
+      }
     </script>
 </body>
 </html>
