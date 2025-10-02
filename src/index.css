@@ -397,15 +397,23 @@
         width: 100%;
     }
     .navbar-menu.mobile-only a {
-        display: block;
+        display: flex;
         width: 100%;
         padding: 16px 0;
         font-size: 1.1em;
         text-align: center;
+        align-items: center;
+        justify-content: center;
         border-radius: 0;
         margin: 0;
         border-bottom: 1px solid #222;
         box-sizing: border-box;
+        min-height: 50px;
+        line-height: 1.2;
+    }
+    
+    .navbar-menu.mobile-only li:last-child a {
+        border-bottom: none;
     }
     #header-logo {
         height: 150px !important;
