@@ -39,13 +39,11 @@ function parseFrontmatter(content) {
 function NewsPost() {
   const { slug } = useParams()
   const [newsData, setNewsData] = useState(null)
-  const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
   useEffect(() => {
     const loadNewsContent = async () => {
       try {
-        setLoading(true)
         
         // Try to load Markdown file using dynamic import (bundled with app)
         let content
@@ -142,8 +140,6 @@ function NewsPost() {
       } catch (err) {
         console.error('Error loading news content:', err)
         setError(err.message)
-      } finally {
-        setLoading(false)
       }
     }
 
@@ -152,25 +148,7 @@ function NewsPost() {
     }
   }, [slug])
 
-  if (loading) {
-    return (
-      <>
-        <SEO 
-          title={`News: ${slug} | DaggerQuest | Browser ARPG`}
-          description={`Read the latest DaggerQuest news post: ${slug}`}
-          url={`https://DaggerQuest.com/news/${slug}`}
-        />
-        <main className="container news-container">
-          <article className="news-post-detail">
-            <h1 className="news-title">Loading...</h1>
-            <section className="news-body">
-              <p>Loading news content...</p>
-            </section>
-          </article>
-        </main>
-      </>
-    )
-  }
+
 
   if (error) {
     const isDisabled = DISABLED_POSTS.includes(slug)
@@ -201,6 +179,24 @@ function NewsPost() {
                 </>
               )}
             </section>
+          </article>
+        </main>
+      </>
+    )
+  }
+
+  // Don't render anything until newsData is loaded
+  if (!newsData) {
+    return (
+      <>
+        <SEO 
+          title={`News: ${slug} | DaggerQuest | Browser ARPG`}
+          description={`Read the latest DaggerQuest news post: ${slug}`}
+          url={`https://DaggerQuest.com/news/${slug}`}
+        />
+        <main className="container news-container">
+          <article className="news-post-detail">
+            {/* Content will appear once loaded */}
           </article>
         </main>
       </>

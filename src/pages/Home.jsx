@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import SEO from '../components/SEO'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
@@ -109,7 +110,8 @@ function Home() {
             title="DaggerQuest Game"
           />
           <div id="mobile-message" className="mobile-only">
-            DaggerQuest is not yet available for mobile devices. Check back soon!
+            <p><span className="name">DaggerQuest</span> is not yet available for mobile devices. Check back soon!</p>
+            <Link to="/news" className="mobile-news-button">latest news</Link>
           </div>
         </section>
         <aside ref={rightAdRef} className="ad-slot right-ad desktop-only fade-in-element">
