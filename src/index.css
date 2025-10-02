@@ -1042,6 +1042,14 @@ strong, b {
         display: inline-block;
     }
     
+    /* Center the first footer div on mobile */
+    footer > div {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        text-align: center !important;
+    }
+    
     /* Override inline styles for mobile footer layout */
     footer > div > div {
         flex-direction: column !important;
