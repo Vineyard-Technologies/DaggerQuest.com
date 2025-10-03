@@ -95,7 +95,7 @@ function Home() {
           {window.location.hostname === "daggerquest.com" && (
             <ins
               className="adsbygoogle"
-              style={{ display: 'inline-block', width: '200px', height: '720px' }}
+              style={{ display: 'inline-block', width: '160px', height: '600px' }}
               data-ad-client="ca-pub-2087729758302145"
               data-ad-slot="2524300910"
               key="left-ad"
@@ -120,7 +120,7 @@ function Home() {
             <>
               <ins
                 className="adsbygoogle"
-                style={{ display: 'inline-block', width: '200px', height: '720px' }}
+                style={{ display: 'inline-block', width: '160px', height: '600px' }}
                 data-ad-client="ca-pub-2087729758302145"
                 data-ad-slot="2524300910"
                 key="right-ad-1"

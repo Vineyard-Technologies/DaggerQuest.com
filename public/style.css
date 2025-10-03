@@ -1,8 +1,8 @@
 /* Ad <ins> element styles */
 .ad-ins {
     display: inline-block;
-    width: 200px;
-    height: 720px;
+    width: 160px;
+    height: 600px;
 }
 /* Mobile message styles */
 #mobile-message {
@@ -677,9 +677,9 @@ h1 {
   gap: 0;
 }
 .ad-slot {
-  width: 200px;
-  min-width: 200px;
-  height: 720px;
+  width: 160px;
+  min-width: 160px;
+  height: 600px;
   background: #f0f0f0;
   display: flex;
   align-items: center;
@@ -690,13 +690,13 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 1400px;
+  width: 1584px;
   flex: 0 0 auto;
 }
 .game-frame {
-  width: 1280px;
-  min-width: 1280px;
-  min-height: 720px;
+  width: 1584px;
+  min-width: 1584px;
+  min-height: 891px;
   border: none;
 }
 @media (max-width: 900px) {
