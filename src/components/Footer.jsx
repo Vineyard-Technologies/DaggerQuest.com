@@ -18,13 +18,13 @@ function Footer() {
       <div style={{ width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
         <div style={{ 
           display: 'flex', 
-          flexDirection: 'row', 
+          flexDirection: 'column', 
           alignItems: 'center', 
-          justifyContent: 'space-between',
+          justifyContent: 'center',
           width: '100%',
           gap: '24px'
         }}>
-          {/* DaggerQuest Logo - Far left corner */}
+          {/* DaggerQuest Logo - Top */}
           <div style={{ display: 'flex', alignItems: 'center' }}>
             <Link to="/" aria-label="DaggerQuest Home">
               <img 
@@ -35,13 +35,13 @@ function Footer() {
             </Link>
           </div>
           
-          {/* All content - Far right corner */}
+          {/* All content - Below logo */}
           <div style={{ 
             display: 'flex', 
             flexDirection: 'column', 
-            alignItems: 'flex-end',
+            alignItems: 'center',
             gap: '12px',
-            marginRight: '3%'
+            textAlign: 'center'
           }}>
             {/* Vineyard Technologies logo and copyright */}
             <div style={{ 
