@@ -9,11 +9,13 @@ function Footer() {
         boxShadow: '0 -2px 12px rgba(0,0,0,0.4)',
         width: '100%',
         padding: '24px',
-        color: 'white'
+        color: 'white',
+        boxSizing: 'border-box',
+        overflowX: 'hidden'
       }}
       role="contentinfo"
     >
-      <div style={{ width: '100%', maxWidth: 'none' }}>
+      <div style={{ width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}>
         <div style={{ 
           display: 'flex', 
           flexDirection: 'row', 
